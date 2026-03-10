@@ -1,0 +1,232 @@
+/* DESIGN SEED: 4821 */
+/* PALETTE MODE: COPPER SLATE */
+/* VISUAL MOOD: Rich editorial finance */
+/* DESIGN PROFILE
+ID: CS-4821
+Background family: Cool
+Surface style: Soft cards
+Accent A (CTA): Copper
+Accent B: Steel cyan
+Text strategy: Mixed
+Section rhythm: Dark hero → Light market → Light model → Dark process → Light metrics → Light insights → Dark risk → Light reviews/faq → Dark final CTA
+Glow strategy: copper glow top-right hero, cyan glow lower-left metrics
+*/
+:root{
+  --text-strong: #172033;
+  --text-muted: #4f5d78;
+  --text-on-dark: #f5f7ff;
+  --text-muted-on-dark: #c7d0e3;
+  --surface-0: #eef1f5;
+  --surface-1: #f8f5ef;
+  --surface-2: #26303c;
+  --surface-card: #ffffff;
+  --border-subtle: #d4dbe7;
+  --input-bg: #f6f8fb;
+  --input-border: #bcc8d8;
+  --focus-ring: #c47b52;
+  --shadow-soft: 0 18px 40px #1c253214;
+  --accent-a: #c47b52;
+  --accent-a-hover: #ab6540;
+  --accent-b: #48a8b8;
+  --btn-height: 48px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--surface-0);color:var(--text-strong);font-size:18px;line-height:1.65}
+h1,h2,h3,h4,h5,h6{color:inherit;line-height:1.2}
+p,li,small,label{color:inherit}
+a{color:var(--accent-a);text-decoration:none}
+.section{position:relative;overflow:hidden;padding:78px 0;width:100%}
+.section.light { background: var(--surface-1); color: var(--text-strong); }
+.section.light p, .section.light li { color: var(--text-muted); }
+.section.dark { background: var(--surface-2); color: var(--text-on-dark); }
+.section.dark p, .section.dark li { color: var(--text-muted-on-dark); }
+.section.light small,.section.light label{color:var(--text-muted)}
+.section.dark small,.section.dark label{color:var(--text-muted-on-dark)}
+.container{max-width:1160px;margin:0 auto;padding-inline:24px;position:relative;z-index:2}
+
+.site-header{position:sticky;top:0;padding:16px 0;z-index:40;border-bottom:1px solid var(--border-subtle);backdrop-filter:blur(8px)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{font-weight:700;color:var(--text-strong)}
+.nav{display:flex;gap:22px;min-width:0}
+.header-actions{display:flex;align-items:center;gap:10px}
+
+.btn{height:var(--btn-height);padding:0 20px;border-radius:12px;border:1px solid transparent;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
+.btn.primary{background:var(--accent-a);color:#fff}
+.btn.primary:hover{background:var(--accent-a-hover)}
+.btn.secondary{background:#e7ebf2;color:var(--text-strong)}
+.btn:focus-visible,.lang-pill:focus-visible,input:focus-visible,.burger:focus-visible{outline:none;box-shadow:0 0 0 4px var(--focus-ring)}
+
+.lang-wrap{position:relative}
+.lang-pill{height:var(--btn-height);padding:0 20px;border-radius:12px;border:1px solid var(--border-subtle);background:#fff;font-size:16px}
+.lang-menu{position:absolute;top:54px;right:0;background:#fff;border:1px solid var(--border-subtle);border-radius:12px;box-shadow:var(--shadow-soft);display:none;width:220px;max-width:100%}
+.lang-menu.open{display:block}
+.lang-menu a{display:flex;align-items:center;gap:10px;padding:10px 12px;color:var(--text-strong)}
+.lang-menu svg{width:20px;height:14px;flex:none;border:1px solid #c9d1dd}
+
+.hero{background:linear-gradient(140deg,#2c3946,#25303c 55%,#36424d)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 12%,#c47b5250,transparent 42%),radial-gradient(circle at 15% 78%,#48a8b847,transparent 38%)}
+.hero-grid,.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
+.split.reverse > :first-child{order:2}
+.hero-panel,.visual-card,.process-card,.footer-panel{background:var(--surface-card);border:1px solid var(--border-subtle);box-shadow:var(--shadow-soft);border-radius:16px;padding:20px;max-width:100%;min-width:0}
+.performance-panel h3{margin-top:0}
+.perf-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;border-top:1px solid var(--border-subtle);padding-top:12px}
+.perf-split strong{display:block;font-size:44px;color:var(--text-strong)}
+.perf-split small{color:var(--text-muted)}
+.tiny{color:var(--text-muted)}
+
+.form-card { 
+  background: var(--surface-card); 
+  color: var(--text-strong); 
+  border: 1px solid var(--border-subtle);
+  border-radius:16px;
+  padding:24px;
+  display:grid;
+  gap:10px;
+}
+.form-card h3, .form-card .form-title { color: var(--text-strong); }
+.form-card p, .form-card .form-sub { color: var(--text-muted); }
+.form-card label { color: var(--text-muted); display:grid; gap:6px; }
+.form-card input {
+  background: var(--input-bg);
+  color: var(--text-strong);
+  border: 1px solid var(--input-border);
+  border-radius:10px;
+  height:46px;
+  padding:0 12px;
+}
+.form-card input::placeholder { color: var(--text-muted); }
+.form-card input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+  border-color: transparent;
+}
+
+.cards{display:grid;gap:16px}
+.cards.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+/* CARD CONTRAST LOCK */
+.card{
+  background: var(--surface-card);
+  color: var(--text-strong);
+  border: 1px solid var(--border-subtle);
+  border-radius:14px;
+  padding:18px;
+}
+.card p, .card li, .card .muted{
+  color: var(--text-muted);
+}
+.section.dark .card{
+  background: var(--surface-card);
+  color: var(--text-strong);
+}
+.section.dark .card p, .section.dark .card li, .section.dark .card .muted{
+  color: var(--text-muted);
+}
+.card, .card * { opacity: 1 !important; }
+.card p, .card li { opacity: 1 !important; }
+
+.interpret{font-weight:600}
+.waterfall .wf-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border-subtle)}
+.waterfall .base b{color:var(--accent-b)}
+.comparison .bar{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:8px;margin:10px 0}
+.comparison i{display:block;height:11px;background:linear-gradient(90deg,var(--accent-a),var(--accent-b));border-radius:99px}
+.ring-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ring{border:1px solid var(--border-subtle);border-radius:12px;padding:14px;background:#fbfcff}
+.ring b{display:block;font-size:28px;color:var(--text-strong)}
+.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.risk-matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.review-card,.faq-item,.metric-card,.kpi-card{background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:14px;padding:18px;color:var(--text-strong)}
+.review-head{display:flex;align-items:center;gap:10px}
+.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#e9edf4;font-weight:700;color:var(--text-strong)}
+.verified{font-size:12px;color:var(--accent-b);font-weight:700}
+.faq-list{display:grid;gap:10px}
+.faq-item summary{cursor:pointer;font-weight:600;color:var(--text-strong)}
+.footer-panel{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+
+.modal{position:fixed;inset:0;background:#10172580;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-card{max-width:760px;width:100%;background:#fff;border-radius:16px;border:1px solid var(--border-subtle);padding:20px;position:relative;max-height:85vh;overflow:auto}
+.modal-x{position:absolute;right:12px;top:12px;background:#fff;border:1px solid var(--border-subtle);border-radius:10px;width:36px;height:36px}
+.modal-footer{display:flex;justify-content:flex-start;padding-top:8px}
+
+.burger{display:none;height:var(--btn-height);width:var(--btn-height);border-radius:12px;border:1px solid var(--border-subtle);background:#fff;padding:10px}
+.burger span{display:block;height:2px;background:var(--text-strong);margin:5px 0}
+.mobile-drawer{position:fixed;top:0;right:-360px;width:320px;max-width:100%;height:100%;background:#fff;z-index:60;padding:18px;display:grid;gap:14px;transition:right .25s ease}
+.mobile-drawer.open{right:0}
+.drawer-backdrop{position:fixed;inset:0;background:#11192766;z-index:55}
+.drawer-close{justify-self:end;border:1px solid var(--border-subtle);background:#fff;border-radius:10px;width:36px;height:36px}
+.mobile-nav{display:grid;gap:10px}
+.mobile-lang{display:grid;gap:8px}
+
+.card,
+.form-card,
+.kpi-card,
+.metric-card,
+.faq-item,
+.review-card,
+.process-card,
+.visual-card,
+.footer-panel,
+.hero-panel{
+  color: var(--text-strong);
+}
+.card h3, .card h4, .card strong,
+.form-card h3, .form-card h4, .form-card strong,
+.kpi-card h3, .metric-card h3,
+.faq-item summary,
+.review-card h4,
+.process-card h4,
+.visual-card h4,
+.footer-panel h4,
+.hero-panel h4{
+  color: var(--text-strong);
+}
+.card p, .card li, .card small, .card label,
+.form-card p, .form-card li, .form-card small, .form-card label,
+.kpi-card p, .metric-card p,
+.faq-item p,
+.review-card p, .review-card small,
+.process-card p,
+.visual-card p,
+.footer-panel p,
+.hero-panel p{
+  color: var(--text-muted);
+}
+.section.dark .card,
+.section.dark .form-card,
+.section.dark .kpi-card,
+.section.dark .metric-card,
+.section.dark .faq-item,
+.section.dark .review-card,
+.section.dark .process-card,
+.section.dark .visual-card,
+.section.dark .footer-panel,
+.section.dark .hero-panel{
+  background: var(--surface-card);
+  color: var(--text-strong);
+}
+.section.dark .card h3, .section.dark .card h4, .section.dark .card strong,
+.section.dark .form-card h3, .section.dark .form-card h4, .section.dark .form-card strong,
+.section.dark .faq-item summary,
+.section.dark .review-card h4,
+.section.dark .process-card h4,
+.section.dark .visual-card h4{
+  color: var(--text-strong);
+}
+.section.dark .card p, .section.dark .card li, .section.dark .card small, .section.dark .card label,
+.section.dark .form-card p, .section.dark .form-card li, .section.dark .form-card small, .section.dark .form-card label,
+.section.dark .faq-item p,
+.section.dark .review-card p,
+.section.dark .process-card p,
+.section.dark .visual-card p{
+  color: var(--text-muted);
+}
+p, li, small, label, input, ::placeholder{opacity:1 !important}
+.card *, .form-card *, .faq-item *, .review-card *, .metric-card *{text-shadow:none !important}
+
+@media (max-width:900px){
+  .desktop-nav,.header-actions .btn.primary,.header-actions .lang-wrap{display:none}
+  .burger{display:block}
+  .hero-grid,.split,.cards.four,.cards.two,.process-grid,.risk-matrix{grid-template-columns:1fr}
+}
